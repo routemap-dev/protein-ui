@@ -1,0 +1,24 @@
+{
+  "name": "protein-ui",
+  "version": "1.0.0-alpha",
+  "description": "A UI library that will surprise you.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legendword/protein-ui.git"
+  },
+  "keywords": [
+    "Vue",
+    "UI",
+    "Library"
+  ],
+  "author": "Legendword <zwh@legendword.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/legendword/protein-ui/issues"
+  },
+  "homepage": "https://github.com/legendword/protein-ui#readme"
+}
