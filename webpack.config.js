@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'protein-ui.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
   },
   module: {
     rules: [
@@ -19,7 +19,11 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ]
   }
 };

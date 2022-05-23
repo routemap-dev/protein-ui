@@ -7,11 +7,11 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dev'),
-    clean: true
+    clean: true,
   },
   devServer: {
     static: './dev',
-    hot: true
+    hot: true,
   },
   module: {
     rules: [
@@ -24,12 +24,17 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'ProteinUI',
+      template: './src/dev/index.html',
     }),
   ],
 };

@@ -1,0 +1,28 @@
+.app {
+    --shade-color: #f1f1f1;
+    --primary-color: #87b540;
+
+    width: 100%;
+    height: 100%;
+
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    .sidebar {
+        width: 15%;
+    }
+    
+    .main {
+        width: 85%;
+    }
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
