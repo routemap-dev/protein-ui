@@ -5,4 +5,6 @@ const ProteinUI = {
     }
 }
 
+export * from './src/components';
+
 export default ProteinUI;
