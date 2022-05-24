@@ -2,7 +2,7 @@
   "name": "protein-ui",
   "version": "1.0.0-alpha",
   "description": "A UI library that will surprise you.",
-  "main": "index.js",
+  "main": "dist/protein-ui.js",
   "scripts": {
     "dev": "webpack serve --open --config webpack.dev.config.js",
     "build": "webpack --config webpack.config.js",
