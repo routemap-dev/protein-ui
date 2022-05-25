@@ -27,7 +27,7 @@ export default Vue.extend({
             },
             key: ind,
             on: {
-                click: this.changeTab
+                click: this.changeTab.bind(this, page),
             },
         }, [page]));
 

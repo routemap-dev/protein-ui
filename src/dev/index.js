@@ -22,7 +22,12 @@ export default Vue.extend({
                 props: {
                     pages: this.pages,
                     selected: this.selected,
-                }
+                },
+                on: {
+                    select: (page) => {
+                        this.selected = page;
+                    },
+                },
             }),
             h(pages[this.selected], {
                 class: 'main'
