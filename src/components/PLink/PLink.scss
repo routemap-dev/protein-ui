@@ -1,3 +1,5 @@
+@use '../../colors.scss';
+
 .p-link {
     text-decoration: none;
 
@@ -11,9 +13,20 @@
         color: inherit;
     }
 
-    transition: opacity 300ms ease;
+    transition: color 300ms ease;
 
-    &:hover {
-        opacity: 0.8;
+    @each $name in colors.$names {
+        &.p-link--#{$name} {
+            color: var(--color-#{$name});
+
+            &:hover {
+                color: var(--shade-#{$name});
+            }
+
+            &:focus {
+                outline: 2px solid var(--color-#{$name});
+                outline-offset: 2px;
+            }
+        }
     }
 }

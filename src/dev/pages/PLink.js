@@ -23,19 +23,18 @@ export default Vue.extend({
             }, [
                 h(PLink, {
                     props: {
-                        textColor: 'primary',
+                        color: 'secondary',
                     },
                     attrs: {
                         href: '#',
                     },
-                }, [`Primary Link`]),
+                }, [`Secondary Link`]),
             ]),
             h('div', {
                 class: 'container',
             }, [
                 h(PLink, {
                     props: {
-                        textColor: 'primary',
                         underline: true,
                     },
                     attrs: {
@@ -48,7 +47,6 @@ export default Vue.extend({
             }, [
                 h(PLink, {
                     props: {
-                        textColor: 'primary',
                         underline: 'hover',
                     },
                     attrs: {

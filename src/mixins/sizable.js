@@ -8,18 +8,19 @@ const sizeAliases = {
 };
 
 export default {
-    props: {
-        size: {
-            type: String,
-            validator: val => !!sizeAliases[val],
-        },
-    },
-    computed: {
-        __sizeClasses() {
-            if (this.size) return {
-                [`${this.baseClass ?? this.$options.name}--${this.size}`]: true
+    compute: function() {
+        if (this.size) {
+            return {
+                modifiers: [sizeAliases[this.size]],
             };
-            return {};
+        }
+    },
+    mixin: {
+        props: {
+            size: {
+                type: String,
+                validator: val => !!sizeAliases[val],
+            },
         },
     },
 };

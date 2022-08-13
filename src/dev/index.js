@@ -3,6 +3,7 @@ import Vue from 'vue';
 import sidebar from './sidebar';
 import pages from './pages';
 
+import '../themes/default.scss';
 import './index.scss';
 
 const pageKeys = Object.keys(pages);
@@ -13,7 +14,7 @@ export default Vue.extend({
     data() {
         return {
             pages: pageKeys,
-            selected: pageKeys[0],
+            selected: location.hash.length && pageKeys.includes(location.hash.substring(1)) ? location.hash.substring(1) : pageKeys[0], 
         }
     },
     render(h) {
@@ -26,6 +27,7 @@ export default Vue.extend({
                 on: {
                     select: (page) => {
                         this.selected = page;
+                        location.hash = page;
                     },
                 },
             }),
