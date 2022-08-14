@@ -31,9 +31,12 @@ export default Vue.extend({
                     },
                 },
             }),
-            h(pages[this.selected], {
-                class: 'main'
-            })
+            h('main', {
+                class: 'main',
+            }, [
+                h('h1', [this.selected]),
+                h(pages[this.selected]),
+            ]),
         ];
 
         return h('div', {
