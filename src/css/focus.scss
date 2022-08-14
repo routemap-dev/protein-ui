@@ -1,0 +1,10 @@
+@mixin outline($color: "primary") {
+  outline-offset: 4px;
+  outline: none;
+
+  &:focus {
+    outline: 2px solid var(--color-#{$color});
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #ffffff;
+  }
+}

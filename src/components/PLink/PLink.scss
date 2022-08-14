@@ -1,6 +1,8 @@
-@use "../../colors.scss";
+@use "../../css/util.scss" as *;
 
 .p-link {
+  @include focus-outline();
+  @include transition(color, outline-offset);
   text-decoration: none;
 
   &.p-link--underline,
@@ -8,26 +10,28 @@
     text-decoration: underline;
   }
 
-  color: inherit;
-
+  &,
   &:visited,
   &:link {
-    color: inherit;
+    color: var(--color-primary);
   }
 
-  transition: color 300ms ease;
+  &:hover {
+    color: var(--shade-primary);
+  }
 
-  @each $name in colors.$names {
+  @each $name in $color-names {
     &.p-link--#{$name} {
-      color: var(--color-#{$name});
+      @include focus-outline($name);
+
+      &,
+      &:visited,
+      &:link {
+        color: var(--color-#{$name});
+      }
 
       &:hover {
         color: var(--shade-#{$name});
-      }
-
-      &:focus {
-        outline: 2px solid var(--color-#{$name});
-        outline-offset: 2px;
       }
     }
   }

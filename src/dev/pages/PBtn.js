@@ -2,7 +2,7 @@ import Vue from "vue";
 
 import Container from "../Container";
 
-import { PBtn } from "../../components";
+import { PBtn, PBtnGroup } from "../../components";
 
 import { presetColors } from "../../mixins/colorable";
 
@@ -10,6 +10,39 @@ export default Vue.extend({
   name: "PagePBtn",
   render(h) {
     return h("div", [
+      h(
+        Container,
+        {
+          props: {
+            title: "Button Group",
+            description: "Work in progress...",
+          },
+        },
+        [
+          h(
+            PBtnGroup,
+            {
+              props: {
+                text: true,
+                color: "success",
+              },
+            },
+            [
+              h(
+                "template",
+                {
+                  slot: "default",
+                },
+                [
+                  h(PBtn, ["Button 1"]),
+                  h(PBtn, ["Button 2"]),
+                  h(PBtn, ["Button 3"]),
+                ]
+              ),
+            ]
+          ),
+        ]
+      ),
       h(
         Container,
         {
@@ -90,7 +123,6 @@ export default Vue.extend({
             PBtn,
             {
               props: {
-                color: "primary",
                 size,
               },
               key: size,

@@ -28,8 +28,7 @@ export default {
     props: {
       color: {
         type: String,
-        required: false,
-        default: "primary",
+        default: null,
       },
     },
   },

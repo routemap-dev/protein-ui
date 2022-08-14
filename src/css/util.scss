@@ -1,0 +1,9 @@
+@forward "./focus.scss" as focus-*;
+@forward "./color.scss" as color-*;
+@mixin transition($props...) {
+  $transition: ();
+  @each $prop in $props {
+    $transition: append($transition, $prop 200ms ease, $separator: comma);
+  }
+  transition: $transition;
+}
