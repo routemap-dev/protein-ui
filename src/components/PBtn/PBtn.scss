@@ -2,6 +2,7 @@
 
 .p-btn {
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.75rem 1.25rem;
   border-radius: 6px;
   cursor: pointer;
@@ -9,7 +10,7 @@
   border: none;
   background: #f1f1f1;
   box-shadow: none;
-  transition: background-color 300ms ease, outline-offset 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease, outline-offset 200ms ease;
   outline-offset: 4px;
 
   &.p-btn--lg {
@@ -30,21 +31,53 @@
 
   &:focus {
     outline: 2px solid var(--color-primary);
-    outline-offset: 1px;
+    outline-offset: 2px;
   }
 
   @each $name in colors.$names {
     &.p-btn--#{$name} {
-      background-color: var(--color-#{$name});
-      color: #ffffff;
-
-      &:hover {
-        background-color: var(--shade-#{$name});
-      }
-
       &:focus {
         outline: 2px solid var(--color-#{$name});
         outline-offset: 2px;
+      }
+
+      &:not(.p-btn--text):not(.p-btn--outline) {
+        background-color: var(--color-#{$name});
+        color: #ffffff;
+  
+        &:hover {
+          background-color: var(--shade-#{$name});
+        }
+      }
+      &.p-btn--text {
+        background-color: transparent;
+        color: var(--color-#{$name});
+  
+        &:hover {
+          background-color: var(--light-#{$name});
+        }
+
+        &:active {
+          background-color: var(--color-#{$name});
+          color: #ffffff;
+        }
+      }
+      &.p-btn--outline {
+        border: 2px solid var(--color-#{$name});
+
+        &:not(.p-btn--text) {
+          background-color: transparent;
+          color: var(--color-#{$name});
+
+          &:hover {
+            background-color: var(--color-#{$name});
+            color: #ffffff;
+          }
+
+          &:active {
+            background-color: var(--shade-#{$name});
+          }
+        }
       }
     }
   }

@@ -30,6 +30,58 @@ export default Vue.extend({
         Container,
         {
           props: {
+            title: "Outline Buttons",
+          },
+        },
+        presetColors.map((color) =>
+          h(PBtn, {
+            props: {
+              label: color,
+              color,
+              outline: true,
+            },
+          })
+        )
+      ),
+      h(
+        Container,
+        {
+          props: {
+            title: "Text Buttons",
+          },
+        },
+        presetColors.map((color) =>
+          h(PBtn, {
+            props: {
+              label: color,
+              color,
+              text: true,
+            },
+          })
+        )
+      ),
+      h(
+        Container,
+        {
+          props: {
+            title: "Text Buttons with Outline",
+          },
+        },
+        presetColors.map((color) =>
+          h(PBtn, {
+            props: {
+              label: color,
+              color,
+              text: true,
+              outline: true,
+            },
+          })
+        )
+      ),
+      h(
+        Container,
+        {
+          props: {
             title: "Sizes",
           },
         },

@@ -18,7 +18,7 @@ export default Vue.extend({
           h(PLink, {
             props: {
               color: "primary",
-              label: "Primary",
+              label: "Primary Link",
             },
             attrs: {
               href: "#",
@@ -34,7 +34,7 @@ export default Vue.extend({
                 href: "#",
               },
             },
-            [`Secondary Link`]
+            ["Secondary Link"]
           ),
         ]
       ),
@@ -56,7 +56,7 @@ export default Vue.extend({
                 href: "#",
               },
             },
-            [`Underline Link`]
+            ["Always Underline"]
           ),
           h(
             PLink,
@@ -68,7 +68,19 @@ export default Vue.extend({
                 href: "#",
               },
             },
-            [`Hover Underline`]
+            ["Underline on Hover"]
+          ),
+          h(
+            PLink,
+            {
+              props: {
+                underline: false,
+              },
+              attrs: {
+                href: "#",
+              },
+            },
+            ["No Underline"]
           ),
         ]
       ),
