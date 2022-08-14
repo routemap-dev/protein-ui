@@ -7,7 +7,7 @@
     "dev": "webpack serve --open --config webpack.dev.config.js",
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src"
+    "lint": "prettier --list-different --write . && eslint src --fix"
   },
   "repository": {
     "type": "git",

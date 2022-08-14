@@ -1,9 +1,9 @@
 import Vue from "vue";
 
-import "./sidebar.scss";
+import "./Sidebar.scss";
 
 export default Vue.extend({
-  name: "sidebar",
+  name: "Sidebar",
   props: {
     pages: {
       type: Array,

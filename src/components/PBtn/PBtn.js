@@ -8,15 +8,16 @@ const mixins = [colorable, sizable];
 import "./PBtn.scss";
 
 export default Vue.extend({
-  name: "p-btn",
+  name: "PBtn",
   mixins: includeMixins(mixins),
   props: {
     label: {
       type: String,
+      default: null,
     },
   },
   render(h) {
-    const computed = compute.call(this, mixins);
+    const computed = compute.call(this, "p-btn", mixins);
     return h(
       "button",
       {

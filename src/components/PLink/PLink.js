@@ -7,11 +7,12 @@ const mixins = [colorable];
 import "./PLink.scss";
 
 export default Vue.extend({
-  name: "p-link",
+  name: "PLink",
   mixins: includeMixins(mixins),
   props: {
     label: {
       type: String,
+      default: null,
     },
     underline: {
       type: [Boolean, String],
@@ -21,7 +22,7 @@ export default Vue.extend({
     },
   },
   render(h) {
-    const computed = compute.call(this, mixins);
+    const computed = compute.call(this, "p-link", mixins);
     return h(
       "a",
       {

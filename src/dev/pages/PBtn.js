@@ -1,17 +1,17 @@
 import Vue from "vue";
 
-import container from "../container";
+import Container from "../Container";
 
 import { PBtn } from "../../components";
 
 import { presetColors } from "../../mixins/colorable";
 
 export default Vue.extend({
-  name: "page-p-btn",
+  name: "PagePBtn",
   render(h) {
     return h("div", [
       h(
-        container,
+        Container,
         {
           props: {
             title: "Colors",
@@ -27,7 +27,7 @@ export default Vue.extend({
         )
       ),
       h(
-        container,
+        Container,
         {
           props: {
             title: "Sizes",

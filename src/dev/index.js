@@ -1,15 +1,15 @@
 import Vue from "vue";
 
-import sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 import pages from "./pages";
 
 import "../themes/default.scss";
-import "./index.scss";
+import "./Index.scss";
 
 const pageKeys = Object.keys(pages);
 
 export default Vue.extend({
-  name: "index",
+  name: "Index",
   data() {
     return {
       pages: pageKeys,
@@ -21,7 +21,7 @@ export default Vue.extend({
   },
   render(h) {
     const children = [
-      h(sidebar, {
+      h(Sidebar, {
         props: {
           pages: this.pages,
           selected: this.selected,

@@ -1,3 +1,3 @@
-import Index from "./dev/index";
+import Index from "./dev/Index";
 
 new Index().$mount("body");

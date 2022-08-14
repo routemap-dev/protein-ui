@@ -1,8 +1,7 @@
-function compute(mixins = []) {
-  const classes = [],
+function compute(name, mixins = []) {
+  let classes = [],
     modifiers = [],
     styles = {};
-  const base = this.$options.name;
 
   for (const mixin of mixins) {
     if (mixin.compute) {
@@ -21,7 +20,7 @@ function compute(mixins = []) {
   return {
     classes: [
       ...classes,
-      ...modifiers.map((modifier) => base + "--" + modifier),
+      ...modifiers.map((modifier) => name + "--" + modifier),
     ],
     styles,
   };

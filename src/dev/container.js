@@ -1,9 +1,9 @@
 import Vue from "vue";
 
-import "./container.scss";
+import "./Container.scss";
 
 export default Vue.extend({
-  name: "container",
+  name: "Container",
   props: {
     title: {
       type: String,

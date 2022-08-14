@@ -1,14 +1,14 @@
 import Vue from "vue";
 
-import container from "../container";
+import Container from "../Container";
 import { PLink } from "../../components";
 
 export default Vue.extend({
-  name: "page-p-link",
+  name: "PagePLink",
   render(h) {
     return h("div", [
       h(
-        container,
+        Container,
         {
           props: {
             title: "Colors",
@@ -39,7 +39,7 @@ export default Vue.extend({
         ]
       ),
       h(
-        container,
+        Container,
         {
           props: {
             title: "Underline Styles",
