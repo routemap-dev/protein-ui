@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  mode: 'production',
-  entry: './index.js',
+  mode: "production",
+  entry: "./index.js",
   output: {
-    filename: 'protein-ui.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "protein-ui.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   module: {
@@ -14,16 +14,16 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
-    ]
-  }
+    ],
+  },
 };

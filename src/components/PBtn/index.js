@@ -1,4 +1,4 @@
-import PBtn from './PBtn';
+import PBtn from "./PBtn";
 
 export { PBtn };
 export default PBtn;

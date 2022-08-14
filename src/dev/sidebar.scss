@@ -1,20 +1,20 @@
 .sidebar {
-    height: 100%;
-    min-height: 100vh;
-    border-right: 1px solid var(--color-shade);
+  height: 100%;
+  min-height: 100vh;
+  border-right: 1px solid var(--color-shade);
 
-    .item {
-        height: 50px;
-        line-height: 50px;
-        padding: 0 10px;
-        cursor: pointer;
-        
-        &:hover {
-            background: var(--color-shade);
-        }
-        &.active {
-            background: var(--color-primary);
-            color: #ffffff;
-        }
+  .item {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-shade);
     }
+    &.active {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+  }
 }

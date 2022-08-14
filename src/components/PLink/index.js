@@ -1,4 +1,4 @@
-import PLink from './PLink';
+import PLink from "./PLink";
 
 export { PLink };
 export default PLink;

@@ -1,32 +1,34 @@
-@use '../../colors.scss';
+@use "../../colors.scss";
 
 .p-link {
-    text-decoration: none;
+  text-decoration: none;
 
-    &.p-link--underline, &.p-link--hover-underline:hover {
-        text-decoration: underline;
-    }
+  &.p-link--underline,
+  &.p-link--hover-underline:hover {
+    text-decoration: underline;
+  }
 
+  color: inherit;
+
+  &:visited,
+  &:link {
     color: inherit;
+  }
 
-    &:visited, &:link {
-        color: inherit;
+  transition: color 300ms ease;
+
+  @each $name in colors.$names {
+    &.p-link--#{$name} {
+      color: var(--color-#{$name});
+
+      &:hover {
+        color: var(--shade-#{$name});
+      }
+
+      &:focus {
+        outline: 2px solid var(--color-#{$name});
+        outline-offset: 2px;
+      }
     }
-
-    transition: color 300ms ease;
-
-    @each $name in colors.$names {
-        &.p-link--#{$name} {
-            color: var(--color-#{$name});
-
-            &:hover {
-                color: var(--shade-#{$name});
-            }
-
-            &:focus {
-                outline: 2px solid var(--color-#{$name});
-                outline-offset: 2px;
-            }
-        }
-    }
+  }
 }

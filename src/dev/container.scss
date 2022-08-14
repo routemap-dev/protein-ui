@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  margin: 20px 0;
+
+  .container-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

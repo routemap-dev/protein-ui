@@ -1,38 +1,48 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-import './sidebar.scss';
+import "./sidebar.scss";
 
 export default Vue.extend({
-    name: 'sidebar',
-    props: {
-        pages: {
-            type: Array,
-            required: true,
-        },
-        selected: {
-            type: String,
-            required: true,
-        },
+  name: "sidebar",
+  props: {
+    pages: {
+      type: Array,
+      required: true,
     },
-    methods: {
-        changeTab(tab) {
-            this.$emit('select', tab);
-        }
+    selected: {
+      type: String,
+      required: true,
     },
-    render(h) {
-        const children = this.pages.map((page, ind) => h('div', {
-            class: {
-                item: true,
-                active: this.selected === page,
-            },
-            key: ind,
-            on: {
-                click: this.changeTab.bind(this, page),
-            },
-        }, [page]));
+  },
+  methods: {
+    changeTab(tab) {
+      this.$emit("select", tab);
+    },
+  },
+  render(h) {
+    const children = this.pages.map((page, ind) =>
+      h(
+        "div",
+        {
+          class: {
+            item: true,
+            active: this.selected === page,
+          },
+          key: ind,
+          on: {
+            click: this.changeTab.bind(this, page),
+          },
+        },
+        [page]
+      )
+    );
 
-        return h('div', {
-            class: 'sidebar',
-        }, children);
-    }
-})
+    return h(
+      "div",
+      {
+        class: "sidebar",
+      },
+      children
+    );
+  },
+});
