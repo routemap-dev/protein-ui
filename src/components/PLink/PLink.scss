@@ -4,6 +4,7 @@
   @include focus-outline();
   @include transition(color, outline-offset);
   text-decoration: none;
+  border-radius: 3px;
 
   &.p-link--underline,
   &.p-link--hover-underline:hover {

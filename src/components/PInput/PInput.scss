@@ -1,0 +1,72 @@
+@use "../../css/util.scss" as *;
+
+@mixin input-color($name) {
+  &:not([disabled]) {
+    &, &:hover, &:focus, &:active {
+      border-color: var(--color-#{$name});
+    }
+
+    &:focus {
+      box-shadow: 0 0 0.2rem var(--shade-#{$name});
+    }
+  }
+  &[disabled] {
+    border-color: var(--shade-#{$name});
+  }
+}
+
+.p-input {
+  @include transition(color, background-color, border-color);
+
+  height: 32px;
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+  font-size: 1rem;
+  border: 2px solid var(--light-gray);
+
+  &:not([disabled]) {
+    &:hover, &:focus, &:active {
+      border: 2px solid var(--color-primary);
+    }
+  
+    &:not([disabled]):focus {
+      box-shadow: 0 0 0.2rem var(--shade-primary);
+      outline: none;
+    }
+  }
+
+  @each $name in $color-names {
+    &.p-input--#{$name} {
+      @include input-color($name);
+    }
+  }
+}
+
+.p-input-container {
+  * {
+    display: block;
+  }
+
+  label {
+    margin-bottom: 0.3rem;
+    color: var(--color-gray);
+  }
+
+  .p-input-description, .p-input-context {
+    margin-top: 0.3rem;
+    color: var(--color-gray);
+    font-size: 0.8rem;
+  }
+
+  @each $name in $color-names {
+    &.p-input-container--#{$name} {
+      .p-input-context {
+        color: var(--color-#{$name});
+      }
+
+      .p-input {
+        @include input-color($name);
+      }
+    }
+  }
+}
