@@ -30,4 +30,21 @@ function includeMixins(mixins) {
   return mixins.map((m) => m.mixin);
 }
 
-export { compute, includeMixins };
+function mergeValues(...args) {
+  const values = args.filter((arg) => arg !== null);
+  if (values.length <= 1) {
+    return values;
+  }
+  const result = [];
+  for (const arg of args) {
+    if (Array.isArray(arg)) {
+      result.push(...arg);
+    } else {
+      // string or objects can be simply added to the array
+      result.push(arg);
+    }
+  }
+  return result;
+}
+
+export { compute, includeMixins, mergeValues };

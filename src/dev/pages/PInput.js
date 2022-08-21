@@ -20,7 +20,7 @@ export default Vue.extend({
             attrs: {
               placeholder: "Placeholder",
             },
-          })
+          }),
         ]
       ),
       h(
@@ -38,7 +38,7 @@ export default Vue.extend({
             },
             attrs: {
               placeholder: "Placeholder",
-              id: "context-input-1"
+              id: "context-input-1",
             },
           }),
           h(PInput, {
@@ -49,7 +49,7 @@ export default Vue.extend({
             },
             attrs: {
               placeholder: "Placeholder",
-              id: "context-input-2"
+              id: "context-input-2",
             },
           }),
           h(PInput, {
@@ -60,7 +60,7 @@ export default Vue.extend({
             },
             attrs: {
               placeholder: "Placeholder",
-              id: "context-input-3"
+              id: "context-input-3",
             },
           }),
           h(PInput, {
@@ -71,7 +71,7 @@ export default Vue.extend({
             },
             attrs: {
               placeholder: "Placeholder",
-              id: "context-input-4"
+              id: "context-input-4",
             },
           }),
         ]
@@ -88,6 +88,27 @@ export default Vue.extend({
             attrs: {
               placeholder: "Placeholder",
               disabled: true,
+            },
+          }),
+        ]
+      ),
+      h(
+        Container,
+        {
+          props: {
+            title: "Custom Styles",
+          },
+        },
+        [
+          h(PInput, {
+            props: {
+              label: "Full Width",
+              containerClass: "full-width",
+            },
+            attrs: {
+              placeholder: "Placeholder",
+              id: "full-width-input",
+              style: "width: 100%",
             },
           }),
         ]

@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { compute, includeMixins } from "../../util";
+import { compute, includeMixins, mergeValues } from "../../util";
 
 import colorable from "../../mixins/colorable";
 const mixins = [colorable];
@@ -9,6 +9,7 @@ import "./PInput.scss";
 export default Vue.extend({
   name: "PInput",
   mixins: includeMixins(mixins),
+  inheritAttrs: false,
   props: {
     label: {
       type: String,
@@ -22,75 +23,77 @@ export default Vue.extend({
       type: String,
       default: null,
     },
+    containerClass: {
+      type: [Object, String, Array],
+      default: null,
+    },
   },
-  inheritAttrs: false,
   render(h) {
-    const hasContainer = this.label || this.description || this.context
-    const computed = compute.call(this, hasContainer ? "p-input-container" : "p-input", mixins);
+    const hasContainer = this.label || this.description || this.context;
     if (hasContainer) {
       const computed = compute.call(this, "p-input-container", mixins);
       const children = [];
       if (this.label) {
-        children.push(h(
-          "label",
-          {
-            attrs: {
-              for: this.$attrs.id,
-            }
-          },
-          [this.label]
-        ));
+        children.push(
+          h(
+            "label",
+            {
+              attrs: {
+                for: this.$attrs.id,
+              },
+            },
+            [this.label]
+          )
+        );
       }
-      children.push(h(
-        "input",
-        {
+      children.push(
+        h("input", {
           class: "p-input",
           attrs: this.$attrs,
-        }
-      ));
+        })
+      );
       if (this.context) {
-        children.push(h(
-          "div",
-          {
-            class: "p-input-context",
-          },
-          [this.context]
-        ));
+        children.push(
+          h(
+            "div",
+            {
+              class: "p-input-context",
+            },
+            [this.context]
+          )
+        );
       }
       if (this.description) {
-        children.push(h(
-          "div",
-          {
-            class: "p-input-description",
-          },
-          [this.description]
-        ));
+        children.push(
+          h(
+            "div",
+            {
+              class: "p-input-description",
+            },
+            [this.description]
+          )
+        );
       }
 
       return h(
         "div",
         {
-          class: [
+          class: mergeValues(
             "p-input-container",
-            ...computed.classes,
-          ],
+            computed.classes,
+            this.containerClass
+          ),
           style: computed.styles,
         },
-        children,
+        children
       );
     } else {
       const computed = compute.call(this, "p-input", mixins);
-      return h(
-        "input",
-        {
-          class: [
-            "p-input",
-            ...computed.classes,
-          ],
-          style: computed.styles,
-          attrs: this.$attrs,
-        }
-      );
+      return h("input", {
+        class: ["p-input", ...computed.classes],
+        style: computed.styles,
+        attrs: this.$attrs,
+      });
     }
   },
 });
