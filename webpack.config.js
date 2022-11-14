@@ -3,10 +3,16 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: "./index.js",
+  experiments: {
+    outputModule: true,
+  },
   output: {
     filename: "protein-ui.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    library: {
+      type: "module",
+    },
   },
   module: {
     rules: [
@@ -22,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ["css-loader", "sass-loader"],
       },
     ],
   },
